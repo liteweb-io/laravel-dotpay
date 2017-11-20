@@ -2,6 +2,8 @@
 
 namespace Liteweb\LaravelDotpay;
 
+use Liteweb\Dotpay\DotpayApi;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     const CONFIG_PATH = __DIR__ . '/../config/laravel-dotpay.php';
@@ -20,5 +22,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             self::CONFIG_PATH,
             'laravel-dotpay'
         );
+        $this->app->singleton(DotpayApi::class, function ($app) {
+            return new DotpayApi($app['config']['laravel-dotpay']['api']);
+        });
     }
 }
