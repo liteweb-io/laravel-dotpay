@@ -1,0 +1,58 @@
+{
+  "name": "liteweb/laravel-dotpay",
+  "description": "A laravel dotpay",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "dotpay"
+  ],
+  "authors": [
+    {
+      "name": "Liteweb",
+      "email": "kamil.fronczak@liteweb.io"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "illuminate/support": "~5.5.0",
+    "liteweb/dotpay": "dev-master"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.5.0",
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Liteweb\\LaravelDotpay\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Liteweb\\LaravelDotpay\\Tests\\": "tests"
+    },
+    "files": [
+      "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+    ]
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Liteweb\\LaravelDotpay\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:liteweb-io/dotpay.git"
+    }
+  ]
+}
