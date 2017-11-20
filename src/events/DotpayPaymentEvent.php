@@ -18,15 +18,17 @@ class DotpayPaymentEvent
 
 
     public $dotpayPayment;
+    public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Payment $dotpayPayment)
+    public function __construct(Payment $dotpayPayment, $user = null)
     {
         $this->dotpayPayment = $dotpayPayment;
+        $this->user = $user;
     }
 
     /**
