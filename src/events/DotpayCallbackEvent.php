@@ -16,7 +16,7 @@ class DotpayCallbackEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
 
-    private $dotpayCallback;
+    public $dotpayCallback;
 
     /**
      * Create a new event instance.
