@@ -63,6 +63,7 @@ class DotpayController extends Controller
         $dotpayApi = new DotpayApi($config);
         $response = $dotpayApi->createPayment(new Payment($data));
 
+        $data['user'] = $request->user();
         event(new DotpayPaymentEvent(new Payment($data)));
 
         return redirect()->to($response->getPaymentUrl());
