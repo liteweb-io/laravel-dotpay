@@ -31,8 +31,8 @@ Dodaj rezpozytorium do composer.json
 
 "repositories": [
         {
-            "type": "path",
-            "url": "packages/liteweb/laravel-dotpay"
+            "type": "vcs",
+            "url": "git@github.com:liteweb-io/laravel-dotpay.git"
         }
     ]
 

@@ -52,7 +52,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:liteweb-io/dotpay.git"
+      "url": "git@github.com:liteweb-io/laravel-dotpay.git"
     }
   ]
 }
