@@ -9,6 +9,7 @@ use Liteweb\Dotpay\DotpayApi;
 use Liteweb\Dotpay\Models\DotpayCallback;
 use Liteweb\Dotpay\Models\Payment;
 use Liteweb\LaravelDotpay\Events\DotpayCallbackEvent;
+use Liteweb\LaravelDotpay\Events\DotpayPaymentEvent;
 
 class DotpayController extends Controller
 {
@@ -56,9 +57,14 @@ class DotpayController extends Controller
         ];
 
 
+
+
         $config = config('laravel-dotpay.api');
         $dotpayApi = new DotpayApi($config);
         $response = $dotpayApi->createPayment(new Payment($data));
+
+        event(new DotpayPaymentEvent(new Payment($data)));
+
         return redirect()->to($response->getPaymentUrl());
     }
 }

@@ -99,6 +99,20 @@ Na routing /dotpay/pay musisz wysłać takie dane (poprzez sesje lub bezpośredn
 }
 ```
 
+Event na rozpoczęcie płatności
+
+```
+DotpayPaymentEvent
+```
+
+
+Event na dotpay callback
+
+```
+DotpayCallbackEvent
+```
+
+
 I gotowe
 
 ## Security
