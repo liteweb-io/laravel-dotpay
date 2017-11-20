@@ -78,7 +78,45 @@ DOTPAY_CURL=
 ```
 
 
-Na routing /dotpay/pay musisz wysłać takie dane (poprzez sesje lub bezpośredni request)
+
+Utwórz metodę która będzie kreowała płatność
+
+
+Przykład
+
+```php
+
+public function pay(Request $request)
+    {
+       
+         $data = [
+            'amount' => '100',
+            'currency' => 'PLN',
+            'description' => 'Payment for internal_id order',
+            'control' => $transaction->id, //ID that dotpay will pong you in the answer
+            'language' => 'pl',
+            'ch_lock' => '1',
+            'url' => '',
+            'urlc' => '',
+            'expiration_datetime' => '2017-12-01T16:48:00',
+            'payer' => [
+                'first_name' => 'John',
+                'last_name' => 'Smith',
+                'email' => 'john.smith@example.com',
+                'phone' => '+48123123123'
+            ],
+            'recipient' => ''
+
+        ];
+
+        $response = $this->dotpayApi->createPayment(new Payment($data));
+        return $response->getPaymentUrl();
+    }
+
+```
+
+Dane do wysłania
+
 ```
  {
  "amount" : "100",
@@ -104,6 +142,9 @@ Event na dotpay callback
 ```
 DotpayCallbackEvent
 ```
+
+
+
 
 
 I gotowe
