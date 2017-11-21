@@ -7,11 +7,10 @@ return [
         'shop_id' => env('DOTPAY_SHOP_ID'),
         'pin' => env('DOTPAY_PIN'),
         'base_url' => env('DOTPAY_BASE_URL'),
-
-    ],
-    'options' => [
         'url' => env('DOTPAY_URL'),
         'curl' => env('DOTPAY_CURL'),
+    ],
+    'options' => [
         'recipient' => [
             'company' => 'YourCompany',
             'address' => [
