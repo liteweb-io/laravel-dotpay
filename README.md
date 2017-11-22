@@ -43,7 +43,6 @@ Dodaj rezpozytorium do composer.json
 **Note! This and next step are optional if you use laravel>=5.5 with package
 auto discovery feature.**
 
-Add service provider to `config/app.php` in `providers` section
 ```php
 Liteweb\LaravelDotpay\ServiceProvider::class,
 ```
@@ -74,6 +73,7 @@ DOTPAY_PIN=
 DOTPAY_BASE_URL=
 DOTPAY_URL=
 DOTPAY_CURL=
+DOTPAY_EXPIRATION_DATETIME=
 
 ```
 
@@ -95,19 +95,13 @@ public function pay(Request $request)
             'description' => 'Payment for internal_id order',
             'control' => $transaction->id, //ID that dotpay will pong you in the answer
             'language' => 'pl',
-            'ch_lock' => '1',
-            'url' => '',
-            'urlc' => '',
-            'expiration_datetime' => '2017-12-01T16:48:00',
             'payer' => [
                 'first_name' => 'John',
                 'last_name' => 'Smith',
                 'email' => 'john.smith@example.com',
                 'phone' => '+48123123123'
             ],
-            'recipient' => ''
-
-        ];
+            ];
 
         $response = $this->dotpayApi->createPayment(new Payment($data));
         return $response->getPaymentUrl();
@@ -124,8 +118,6 @@ Dane do wysłania
  "description" : "Payment for internal_id order",
  "control" : "12345", 
  "language" : "pl",
- "ch_lock" : "0",
- "expiration_datetime" : "2017-12-01T16:48:00",
  "payer" : {
                  "first_name" : "John",
                  "last_name" : "Smith",

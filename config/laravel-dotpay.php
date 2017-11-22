@@ -9,8 +9,6 @@ return [
         'base_url' => env('DOTPAY_BASE_URL'),
         'url' => env('DOTPAY_URL'),
         'curl' => env('DOTPAY_CURL'),
-    ],
-    'options' => [
         'recipient' => [
             'company' => 'YourCompany',
             'address' => [
@@ -20,5 +18,6 @@ return [
                 'city' => ''
             ]
         ],
-    ]
+        'expiration_datetime' => env('DOTPAY_EXPIRATION_DATETIME')
+    ],
 ];
